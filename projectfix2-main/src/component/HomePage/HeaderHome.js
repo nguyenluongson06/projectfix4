@@ -77,7 +77,10 @@ const HeaderHome = ({ image1, image2 }) => {
                             <li className="nav-item">
                                 <a className="nav-link text-white" href="#talkshow">Talkshow</a>
                             </li>
-                            <li className="nav-item" >
+                            <li className="nav-item">
+                                <a className="nav-link text-white" href="#talkshow">My tickets</a>
+                            </li>
+                            <li className="nav-item">
                                 <a className="btn btn-outline-light rounded-pill px-4" href="#login"
                                    style={{marginLeft: '10px'}}>Login</a>
                             </li>
