@@ -26,7 +26,7 @@ const Navbar = () => {
 					/>
 				</svg>
 			</a>
-			<nav className='navbar-class'>
+			<nav class='navbar-class'>
 				<ul>
 					<li>
 						<a>Music</a>
@@ -35,14 +35,12 @@ const Navbar = () => {
 						<a>Sports</a>
 					</li>
 					<li>
-						<a>Conference</a>
+						<a>Stage and art</a>
 					</li>
 					<li>
-						<a>Workshop</a>
+						<a>Talkshow</a>
 					</li>
-					<li>
-						<a>Theater</a>
-					</li>
+					
 					<li>
 						<a>My tickets</a>
 					</li>
