@@ -71,3 +71,14 @@
     padding: 15.2px 30.4px;
     border: none;
 }
+/* Loại bỏ gạch dưới và thay đổi màu chữ của các liên kết */
+a {
+    text-decoration: none; /* Bỏ dấu gạch dưới */
+    color: white; /* Giữ nguyên màu chữ của phần tử chứa */
+}
+
+/* Nếu bạn muốn thay đổi màu chữ thành màu khác, ví dụ màu đen */
+a {
+    text-decoration: none;
+    color: white;
+}

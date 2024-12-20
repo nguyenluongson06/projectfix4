@@ -1,11 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import HomePage from './HomePage';
-import Footerheader from './footerheader';
-import EventDetail from './EventDetails';
-import Cart from './Cart';
-import Checkout from './Checkout';
+import HomePage from './Page/HomePage';
+import EventDetail from './Page/EventDetails';
+import Cart from './Page/Cart';
+import Checkout from './Page/Checkout';
 import './app.css';
+import Login from './Page/Login';
+import Music from './Page/Music';
+import Sport from './Page/Sport';
+import Stageandart from "./Page/Stageandart";
+import Talkshow from './Page/Talkshow';
+import Signin from './Page/SignIn';
 
 const App = () => {
 	return (
@@ -13,10 +18,15 @@ const App = () => {
 			<Routes>
 				{/* Định tuyến các trang */}
 				<Route path='/' element={<HomePage />} />
-				<Route path='/footerheader' element={<Footerheader />} />
 				<Route path='/events/:eventUuid' element={<EventDetail />} />
 				<Route path='/cart' element={<Cart />} />
 				<Route path='/checkout' element={<Checkout />} />
+				<Route path='/login' element={<Login />} />
+				<Route path='/music' element={<Music />} />
+				<Route path='/sport' element={<Sport />} />
+				<Route path='/stageandart' element={<Stageandart />} />
+				<Route path='/talkshow' element={<Talkshow/>}/>
+				<Route path='/signin' element={<Signin/>} />
 			</Routes>
 		</Router>
 	);

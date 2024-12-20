@@ -26,29 +26,27 @@ const Navbar = () => {
 					/>
 				</svg>
 			</a>
-			<nav className='navbar-class'>
+			<nav class='navbar-class'>
 				<ul>
 					<li>
-						<a>Music</a>
+						<a href='/music'>Music</a>
 					</li>
 					<li>
-						<a>Sports</a>
+						<a href='/sport'>Sports</a>
 					</li>
 					<li>
-						<a>Conference</a>
+						<a href='/stageandart'>Stage and art</a>
 					</li>
 					<li>
-						<a>Workshop</a>
+						<a href='/talkshow'>Talkshow</a>
 					</li>
-					<li>
-						<a>Theater</a>
-					</li>
+
 					<li>
 						<a>My tickets</a>
 					</li>
 				</ul>
 			</nav>
-			<button id='btn-login-id'>Login</button>
+			<button id='btn-login-id'href='/login'>Login</button>
 		</header>
 	);
 };

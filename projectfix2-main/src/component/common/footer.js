@@ -47,31 +47,33 @@ const Footer = () => {
             </svg>
 
         </div>
-        <div class="plan-event-class">
-            <p class="title-class">Plan Events</p>
-            <p class="content-class">Create and Set Up</p>
-            <p class="content-class">Sell Tickets</p>
-            <p class="content-class">Online RSVP</p>
-            <p class="content-class">Online Events</p>
+        <div className="plan-event-class">
+            <p className="title-class">Plan Events</p>
+            <p className="content-class"><a href="#create-setup">Create and Set Up</a></p>
+            <p className="content-class"><a href="#sell-tickets">Sell Tickets</a></p>
+            <p className="content-class"><a href="#online-rsvp">Online RSVP</a></p>
+            <p className="content-class"><a href="#online-events">Online Events</a></p>
         </div>
         <div class="plan-event-class">
             <p class="title-class">Eventick</p>
-            <p class="content-class">About us</p>
-            <p class="content-class">Press</p>
-            <p class="content-class">Contact Us</p>
-            <p class="content-class">Help Center</p>
-            <p class="content-class">How it Works</p>
-            <p class="content-class">Privacy</p>
-            <p class="content-class">Terms</p>
+            <p class="content-class"><a href="#about-us">About us</a></p>
+            <p class="content-class"><a href="#press">Press</a></p>
+            <p class="content-class"><a href="#contact-us">Contact Us</a></p>
+            <p class="content-class"><a href="#help-center">Help Center</a></p>
+            <p class="content-class"><a href="#how-it-works">How it Works</a></p>
+            <p class="content-class"><a href="#privacy">Privacy</a></p>
+            <p class="content-class"><a href="#terms">Terms</a></p>
         </div>
         <div class="stay-in-the-loop-class">
             <p class="title-class">Stay In The Loop</p>
-            <p class="content-class">Join our mailing list to stay in the loop with our newest<br />for Event and concert</p>
+            <p class="content-class">Join our mailing list to stay in the loop with our newest<br/>for Event and concert
+            </p>
             <div class="enter-email-class">
-                <input id="enter-email-id" placeholder="Enter your email address.." />
-                <button id="submit-email-id">Subscibe Now</button>
+                <input id="enter-email-id" placeholder="Enter your email address.."/>
+                <button id="submit-email-id">Subscribe Now</button>
             </div>
         </div>
+
     </footer>;
 };
 

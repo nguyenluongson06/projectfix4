@@ -49,7 +49,7 @@ const HeaderHome = ({ image1, image2 }) => {
                             marginRight: '10px',
                         }}
                     />
-                    <a className="navbar-brand text-white fw-bold" href="#home">
+                    <a className="navbar-brand text-white fw-bold" href="/">
                         My Tickets
                     </a>
                     <button
@@ -66,19 +66,22 @@ const HeaderHome = ({ image1, image2 }) => {
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a className="nav-link text-white" href="#music">Music</a>
+                                <a className="nav-link text-white" href="music">Music</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link text-white" href="#sports">Sports</a>
+                                <a className="nav-link text-white" href="sport">Sports</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link text-white" href="#stage">Stage and Art</a>
+                                <a className="nav-link text-white" href="stageandart">Stage and Art</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link text-white" href="#talkshow">Talkshow</a>
+                                <a className="nav-link text-white" href="talkshow">Talkshow</a>
                             </li>
-                            <li className="nav-item" >
-                                <a className="btn btn-outline-light rounded-pill px-4" href="#login"
+                            <li className="nav-item">
+                                <a className="nav-link text-white" href="#talkshow">My tickets</a>
+                            </li>
+                            <li className="nav-item">
+                                <a className="btn btn-outline-light rounded-pill px-4" href="login"
                                    style={{marginLeft: '10px'}}>Login</a>
                             </li>
                         </ul>
