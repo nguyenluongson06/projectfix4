@@ -1,0 +1,82 @@
+.main_view_login {
+    padding-top: 150px;
+    padding-bottom: 150px;
+    padding-left: 600px;
+
+}
+
+.title_class{
+    color: #0A075F;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.content_class{
+    color: #8692A6;
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 80px;
+}
+
+.title_email_class{
+    color: #696F79;
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.title_password_class{
+    color: #696F79;
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+#enter-email-login-id{
+    width: 50%;
+    padding-left: 25px;
+    padding-right: 25px;
+    height: 50px;
+    border: 2px solid #8692A6;
+    border-radius: 4px;
+    margin-bottom: 35px;
+}
+
+#enter-password-login-id{
+    width: 50%;
+    padding-left: 25px;
+    padding-right: 25px;
+    height: 50px;
+    border: 2px solid #8692A6;
+    border-radius: 4px;
+}
+
+#remember_id{
+    height: 20px;
+    width: 20px;
+}
+
+.main_view_login label{
+    margin-left: 20px;
+    color: #696F79;
+    font-size: 16px;
+}
+
+#login_button_id{
+    width: 54.5%;
+    height: 60px;
+    background-color: #0A075F;
+    color: #FFFFFF;
+    border-radius: 6px;
+}
+
+.main_view_login a{
+    color: #696F79;
+    font-size: 19px;
+}
+
+.main_view_login .register_class{
+    color: #2C73EB;
+    font-size: 19px;
+    text-decoration: none;
+}
