@@ -35,12 +35,21 @@ const Navbar = () => {
 						<a href='/sport'>Sports</a>
 					</li>
 					<li>
+<<<<<<< HEAD
 						<a href='/stageandart'>Stage and art</a>
 					</li>
 					<li>
 						<a href='/talkshow'>Talkshow</a>
 					</li>
 
+=======
+						<a>Stage and art</a>
+					</li>
+					<li>
+						<a>Talkshow</a>
+					</li>
+					
+>>>>>>> 440d0b4705e373934f5375483f49da51a645534c
 					<li>
 						<a>My tickets</a>
 					</li>
