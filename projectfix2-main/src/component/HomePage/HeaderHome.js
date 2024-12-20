@@ -81,11 +81,7 @@ const HeaderHome = ({ image1, image2 }) => {
                                 <a className="nav-link text-white" href="#talkshow">My tickets</a>
                             </li>
                             <li className="nav-item">
-<<<<<<< HEAD
                                 <a className="btn btn-outline-light rounded-pill px-4" href="login"
-=======
-                                <a className="btn btn-outline-light rounded-pill px-4" href="#login"
->>>>>>> 440d0b4705e373934f5375483f49da51a645534c
                                    style={{marginLeft: '10px'}}>Login</a>
                             </li>
                         </ul>
