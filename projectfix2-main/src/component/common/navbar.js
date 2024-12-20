@@ -46,7 +46,7 @@ const Navbar = () => {
 					</li>
 				</ul>
 			</nav>
-			<button id='btn-login-id'href='/login'>Login</button>
+			<a href='/login'><button id='btn-login-id'>Login</button></a>
 		</header>
 	);
 };
