@@ -1,4 +1,5 @@
 import axios from 'axios';
+import TokenManager from './TokenManager';
 
 const API_BASE_URL = 'http://localhost:8080/api/reservations';
 
@@ -10,10 +11,15 @@ const ReservationAPI = {
 	 */
 	createReservation: async (reservationData) => {
 		try {
-			const response = await axios.post(
-				`${API_BASE_URL}/create`,
-				reservationData,
-			);
+			const token = TokenManager.getToken();
+			const response = await fetch(`${API_BASE_URL}/create`, {
+				method: 'POST',
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+				body: JSON.stringify(reservationData),
+			});
+			console.log(response);
 			return response.data;
 		} catch (error) {
 			console.error(
@@ -33,7 +39,14 @@ const ReservationAPI = {
 	 */
 	getReservations: async () => {
 		try {
-			const response = await axios.get(`${API_BASE_URL}/list`);
+			const token = TokenManager.getToken();
+			const response = await fetch(`${API_BASE_URL}/list`, {
+				method: 'GET',
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			});
+			console.log(response);
 			return response.data;
 		} catch (error) {
 			console.error(

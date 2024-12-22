@@ -1,3 +1,5 @@
+import TokenManager from './TokenManager';
+
 const API_BASE_URL = 'http://localhost:8080/api/auth';
 
 const AuthAPI = {
@@ -18,12 +20,15 @@ const AuthAPI = {
 			});
 
 			if (!response.ok) {
+				// Parse error response and throw error
 				const errorData = await response.json();
 				throw new Error(errorData.message || 'Failed to log in');
 			}
 
-			const data = await response.json();
-			return data; // e.g., { token, user }
+			// Parse the response JSON to get the token
+			const data = await response.text(); // Log the token for debugging
+
+			return data; // Assuming the token is the direct response
 		} catch (error) {
 			console.error('Login Error:', error.message);
 			throw error; // Re-throw for handling in the component
@@ -50,11 +55,35 @@ const AuthAPI = {
 				throw new Error(errorData.message || 'Failed to sign up');
 			}
 
-			const data = await response.json();
+			const data = await response.text();
+			console.log(data);
 			return data; // e.g., { message: "User created successfully", user }
 		} catch (error) {
-			console.error('Signup Error:', error.message);
-			throw error; // Re-throw for handling in the component
+			// Re-throw for handling in the component
+		}
+	},
+
+	getInfo: async () => {
+		try {
+			const token = TokenManager.getToken();
+			if (!token || token.length === 0) {
+				console.log('Token is empty: ' + token.toString());
+			}
+			const response = await fetch(`${API_BASE_URL}/info`, {
+				method: 'GET',
+				headers: {
+					Authorization: `Bearer ${token}`,
+				},
+			});
+			if (!response.ok) {
+				const errorData = await response.json();
+				throw new Error(errorData.message || 'Failed to get user info');
+			}
+			const data = await response.json();
+			return data;
+		} catch (error) {
+			console.error('Error getting user info:', error.message);
+			throw error;
 		}
 	},
 };

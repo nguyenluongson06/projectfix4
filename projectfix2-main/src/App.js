@@ -8,9 +8,10 @@ import './app.css';
 import Login from './Page/Login';
 import Music from './Page/Music';
 import Sport from './Page/Sport';
-import Stageandart from "./Page/Stageandart";
+import Stageandart from './Page/Stageandart';
 import Talkshow from './Page/Talkshow';
 import Signin from './Page/SignIn';
+import Reservation from './Page/ReservationProcess';
 
 const App = () => {
 	return (
@@ -25,8 +26,9 @@ const App = () => {
 				<Route path='/music' element={<Music />} />
 				<Route path='/sport' element={<Sport />} />
 				<Route path='/stageandart' element={<Stageandart />} />
-				<Route path='/talkshow' element={<Talkshow/>}/>
-				<Route path='/signin' element={<Signin/>} />
+				<Route path='/talkshow' element={<Talkshow />} />
+				<Route path='/signup' element={<Signin />} />
+				<Route path='/reservation-processing' element={<Reservation />} />
 			</Routes>
 		</Router>
 	);

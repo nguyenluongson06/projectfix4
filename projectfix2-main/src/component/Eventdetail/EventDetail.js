@@ -51,36 +51,40 @@ export default function EventDetail() {
 
 	if (!event) return <div>Loading event details...</div>;
 
-	const formatDate = (dateString) => new Date(dateString).toLocaleString('en-US', {
-		weekday: 'long',
-		year: 'numeric',
-		month: 'long',
-		day: 'numeric',
-		hour: '2-digit',
-		minute: '2-digit',
-	});
+	const formatDate = (dateString) =>
+		new Date(dateString).toLocaleString('en-US', {
+			weekday: 'long',
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric',
+			hour: '2-digit',
+			minute: '2-digit',
+		});
 
 	return (
-		<Container className="event-detail-container my-5">
-			<Row className="gy-4">
+		<Container className='event-detail-container my-5'>
+			<Row className='gy-4'>
 				<Col md={6}>
 					<Swiper
 						modules={[Navigation, Pagination]}
 						spaceBetween={10}
 						slidesPerView={1}
 						navigation
-						pagination={{ clickable: true }}
-					>
+						pagination={{ clickable: true }}>
 						{media.map((item) => (
 							<SwiperSlide key={item.id}>
-								<img src={item.url} alt={`Media ${item.id}`} className="w-100 rounded-lg" />
+								<img
+									src={item.url}
+									alt={`Media ${item.id}`}
+									className='w-100 rounded-lg'
+								/>
 							</SwiperSlide>
 						))}
 					</Swiper>
 				</Col>
 				<Col md={6}>
 					<h1>{event.name}</h1>
-					<Badge pill bg="primary" className="mb-2">
+					<Badge pill bg='primary' className='mb-2'>
 						{event.categoryName}
 					</Badge>
 					<p>
@@ -89,35 +93,72 @@ export default function EventDetail() {
 					<p>
 						<LocationOnIcon /> {event.place}
 					</p>
-					<p><strong>Max Participants:</strong> {event.maxQuantity}</p>
-
+					<p>
+						<strong>Max Participants:</strong> {event.maxQuantity}
+					</p>
 					<h3>Tickets</h3>
 					{tickets.map((ticket) => (
-						<Card key={ticket.id} className="ticket-card mb-3">
-							<Card.Body className="d-flex justify-content-between">
+						<Card key={ticket.id} className='ticket-card mb-3'>
+							<Card.Body className='d-flex justify-content-between align-items-center'>
 								<div>
 									<h5>{ticket.ticketName}</h5>
 									<p>{ticket.ticketPosition}</p>
 								</div>
-								<p className="text-primary">${ticket.price}</p>
+								<div className='d-flex align-items-center'>
+									<Button
+										variant='outline-secondary'
+										size='sm'
+										onClick={() =>
+											setQuantity((prev) => ({
+												...prev,
+												[ticket.id]: Math.max((prev[ticket.id] || 0) - 1, 0),
+											}))
+										}>
+										-
+									</Button>
+									<span className='mx-2'>{quantity[ticket.id] || 0}</span>
+									<Button
+										variant='outline-secondary'
+										size='sm'
+										onClick={() =>
+											setQuantity((prev) => ({
+												...prev,
+												[ticket.id]: Math.min(
+													(prev[ticket.id] || 0) + 1,
+													ticket.maxQuantity,
+												),
+											}))
+										}>
+										+
+									</Button>
+								</div>
+								<p className='text-primary mb-0 ms-3'>${ticket.price}</p>
 							</Card.Body>
 						</Card>
 					))}
-
 					<Button
-						variant="primary"
-						className="w-100"
-						onClick={() =>
+						className='w-full'
+						onClick={() => {
 							dispatch(
-								addToCart({ id: event.uuid, title: event.name, tickets, quantities: quantity })
-							)
-						}
-					>
-						<AddShoppingCartIcon /> Buy Now
+								addToCart({
+									uuid: event.uuid,
+									name: event.name,
+									timeStart: event.timeStart,
+									place: event.place,
+									categoryName: event.categoryName,
+									thumbnailUrl: event.thumbnailUrl,
+									tickets: tickets.map((ticket) => ({
+										...ticket,
+										quantity: quantity[ticket.id] || 1, // Ensure quantity is at least 1
+									})),
+								}),
+							);
+						}}>
+						<AddShoppingCartIcon className='mr-2 h-4 w-4' />
+						Add to cart
 					</Button>
-
 					{/* Thêm phần mô tả dưới nút Buy Now */}
-					<div className="event-description mt-4">
+					<div className='event-description mt-4'>
 						<h3>Description</h3>
 						<p>{event.description}</p>
 					</div>
