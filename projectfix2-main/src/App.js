@@ -12,6 +12,7 @@ import Stageandart from './Page/Stageandart';
 import Talkshow from './Page/Talkshow';
 import Signin from './Page/SignIn';
 import Reservation from './Page/ReservationProcess';
+import Checkin from './Page/ReservationCheckin';
 
 const App = () => {
 	return (
@@ -29,6 +30,10 @@ const App = () => {
 				<Route path='/talkshow' element={<Talkshow />} />
 				<Route path='/signup' element={<Signin />} />
 				<Route path='/reservation-processing' element={<Reservation />} />
+				<Route
+					path='/reservations/checkin/:reservationUuid'
+					element={<Checkin />}
+				/>
 			</Routes>
 		</Router>
 	);

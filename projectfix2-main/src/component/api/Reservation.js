@@ -12,28 +12,30 @@ const ReservationAPI = {
 	createReservation: async (reservationData) => {
 		try {
 			const token = TokenManager.getToken(); // Retrieve token
-			const response = await fetch('http://localhost:8080/api/reservations/create', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-					Authorization: `Bearer ${token}`, // Include token
+			const response = await fetch(
+				'http://localhost:8080/api/reservations/create',
+				{
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+						Authorization: `Bearer ${token}`, // Include token
+					},
+					body: JSON.stringify(reservationData),
 				},
-				body: JSON.stringify(reservationData),
-			});
-	
+			);
+
 			if (!response.ok) {
 				// Handle non-200 responses
 				const errorData = await response.json();
 				throw new Error(errorData.message || 'Failed to create reservation');
 			}
-	
+
 			return await response.json(); // Parse JSON response
 		} catch (error) {
 			console.error('Error creating reservation:', error.message || error);
 			throw error;
 		}
 	},
-	
 
 	/**
 	 * Fetch the list of all reservations.
@@ -124,22 +126,25 @@ const ReservationAPI = {
 	 * @returns {Promise<string>} - Check-in status message.
 	 */
 	checkInReservation: async (reservationUuid) => {
+		const token = TokenManager.getToken();
 		try {
-			const response = await axios.get(
+			const response = await fetch(
 				`${API_BASE_URL}/checkin/${reservationUuid}`,
+				{
+					method: 'GET',
+					headers: {
+						Authorization: `Bearer ${token}`,
+					},
+				},
 			);
-			return response.data;
+
+			if (!response.ok) {
+				throw new Error('Failed to check in reservation');
+			}
+			console.log(response);
+			return await response.text(); // Returns the response as a string
 		} catch (error) {
-			console.error(
-				'Error during reservation check-in:',
-				error.response?.data || error.message,
-			);
-			if (error.response?.status === 401) {
-				throw new Error('Unauthorized: Please log in to check in.');
-			}
-			if (error.response?.status === 404) {
-				throw new Error('Not Found: Reservation does not exist.');
-			}
+			console.error('Error in checkInReservation:', error.message || error);
 			throw error;
 		}
 	},
