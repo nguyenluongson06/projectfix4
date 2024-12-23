@@ -11,27 +11,29 @@ const ReservationAPI = {
 	 */
 	createReservation: async (reservationData) => {
 		try {
-			const token = TokenManager.getToken();
-			const response = await fetch(`${API_BASE_URL}/create`, {
+			const token = TokenManager.getToken(); // Retrieve token
+			const response = await fetch('http://localhost:8080/api/reservations/create', {
 				method: 'POST',
 				headers: {
-					Authorization: `Bearer ${token}`,
+					'Content-Type': 'application/json',
+					Authorization: `Bearer ${token}`, // Include token
 				},
 				body: JSON.stringify(reservationData),
 			});
-			console.log(response);
-			return response.data;
-		} catch (error) {
-			console.error(
-				'Error creating reservation:',
-				error.response?.data || error.message,
-			);
-			if (error.response?.status === 500) {
-				throw new Error('Internal Server Error: Unable to create reservation.');
+	
+			if (!response.ok) {
+				// Handle non-200 responses
+				const errorData = await response.json();
+				throw new Error(errorData.message || 'Failed to create reservation');
 			}
+	
+			return await response.json(); // Parse JSON response
+		} catch (error) {
+			console.error('Error creating reservation:', error.message || error);
 			throw error;
 		}
 	},
+	
 
 	/**
 	 * Fetch the list of all reservations.

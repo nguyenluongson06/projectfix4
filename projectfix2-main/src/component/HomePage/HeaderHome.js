@@ -123,7 +123,7 @@ const HeaderHome = ({ image1, image2 }) => {
 								</a>
 							</li>
 							<li className='nav-item'>
-								<a className='nav-link text-white' href='/my-tickets'>
+								<a className='nav-link text-white' href='/cart'>
 									My Tickets
 								</a>
 							</li>
